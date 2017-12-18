@@ -10,30 +10,49 @@ import UIKit
 import MapKit
 import CoreLocation
 
-class BikesViewController: UIViewController, CLLocationManagerDelegate, UICollectionViewDelegate, UICollectionViewDataSource {
+class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
-    @IBOutlet weak var CollectionView: UICollectionView!
     @IBOutlet weak var map: MKMapView!
     
     let manager = CLLocationManager()
-    
-    var bikes = ["bike 1", "bike 2", "bike 3", "bike 4", "bike 5"]
+    var annotation:AnnotationPin!
+    var bikesList = [Bike]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        map.delegate = self
+        
+        var bike = Bike(withTheName: "Vélo de qualité", andALatitudeOf: 48.785478, andALongitudeOf: 2.445296)
+        self.bikesList.append(bike)
+        
+        bike = Bike(withTheName: "Vélo de qualité 2", andALatitudeOf: 48.7860525, andALongitudeOf: 2.4438384)
+        self.bikesList.append(bike)
+        
         // Add anotation on the map
-        let annotation = MKPointAnnotation()
-        let annotationLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(48.785478, 2.445296)
-        annotation.coordinate = annotationLocation
-        annotation.title = "Hello"
-        annotation.subtitle = "It's me"
-        map.addAnnotation(annotation)
-
+        for bikeItem in bikesList {
+            
+            let annotationLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(bikeItem.latitude, bikeItem.longitude)
+            annotation = AnnotationPin(withTheTitle: bike.name, andTheSubtitle: "test", andCoordinatesOf: annotationLocation, andABike: bikeItem)
+            map.addAnnotation(annotation)
+        }
+        
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bikeDetails" {
+            
+            let destination = segue.destination
+            if let bikeDetailsController = destination as? BikeDetailsViewController {
+                
+                bikeDetailsController.bike = (sender as! AnnotationPin).bike
+            }
+            
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -47,17 +66,25 @@ class BikesViewController: UIViewController, CLLocationManagerDelegate, UICollec
         self.map.showsUserLocation = true
     }
     
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return bikes.count
+    // Customize pin
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        if annotation is MKUserLocation { return nil }
+        
+        let reuseId = "customAnnotation"
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        if annotationView == nil {
+            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            annotationView?.canShowCallout = false
+        } else {
+            annotationView?.annotation = annotation
+        }
+        
+        return annotationView
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "BikeCollectionViewCell", for: indexPath) as! BikeCollectionViewCell
-        
-        cell.label.text = bikes[indexPath.row]
-        
-        return cell
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        let annotation = view.annotation as! AnnotationPin
+        performSegue(withIdentifier: "bikeDetails", sender: annotation)
     }
 
 }

@@ -9,7 +9,9 @@
 /* Begin PBXBuildFile section */
 		EB0904F31FE7FC6A00B649F8 /* BikesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0904F21FE7FC6A00B649F8 /* BikesViewController.swift */; };
 		EB0904F51FE8013500B649F8 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB0904F41FE8012A00B649F8 /* CoreLocation.framework */; };
-		EB0904FA1FE8185F00B649F8 /* BikeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0904F91FE8185F00B649F8 /* BikeCollectionViewCell.swift */; };
+		EB0904FD1FE8265A00B649F8 /* Bike.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0904FC1FE8265A00B649F8 /* Bike.swift */; };
+		EB0904FF1FE83E4200B649F8 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0904FE1FE83E4200B649F8 /* AnnotationPin.swift */; };
+		EB0905011FE84B7F00B649F8 /* BikeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0905001FE84B7F00B649F8 /* BikeDetailsViewController.swift */; };
 		EBBF0D211FE7CCF900F937B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF0D201FE7CCF900F937B7 /* AppDelegate.swift */; };
 		EBBF0D231FE7CCF900F937B7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF0D221FE7CCF900F937B7 /* ViewController.swift */; };
 		EBBF0D261FE7CCF900F937B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBF0D241FE7CCF900F937B7 /* Main.storyboard */; };
@@ -25,7 +27,9 @@
 		EA836737FFD71FBF53AB7A46 /* Pods_Libike.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Libike.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB0904F21FE7FC6A00B649F8 /* BikesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikesViewController.swift; sourceTree = "<group>"; };
 		EB0904F41FE8012A00B649F8 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		EB0904F91FE8185F00B649F8 /* BikeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeCollectionViewCell.swift; sourceTree = "<group>"; };
+		EB0904FC1FE8265A00B649F8 /* Bike.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bike.swift; sourceTree = "<group>"; };
+		EB0904FE1FE83E4200B649F8 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
+		EB0905001FE84B7F00B649F8 /* BikeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsViewController.swift; sourceTree = "<group>"; };
 		EBBF0D1D1FE7CCF900F937B7 /* Libike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Libike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBBF0D201FE7CCF900F937B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBBF0D221FE7CCF900F937B7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -63,16 +67,17 @@
 			children = (
 				EBBF0D221FE7CCF900F937B7 /* ViewController.swift */,
 				EB0904F21FE7FC6A00B649F8 /* BikesViewController.swift */,
+				EB0905001FE84B7F00B649F8 /* BikeDetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		EB0904F61FE812DB00B649F8 /* Cells */ = {
+		EB0904FB1FE8264500B649F8 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				EB0904F91FE8185F00B649F8 /* BikeCollectionViewCell.swift */,
+				EB0904FC1FE8265A00B649F8 /* Bike.swift */,
 			);
-			path = Cells;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		EBBF0D141FE7CCF900F937B7 = {
@@ -96,7 +101,7 @@
 		EBBF0D1F1FE7CCF900F937B7 /* Libike */ = {
 			isa = PBXGroup;
 			children = (
-				EB0904F61FE812DB00B649F8 /* Cells */,
+				EB0904FB1FE8264500B649F8 /* Models */,
 				EB0904F11FE7FC5100B649F8 /* ViewControllers */,
 				EBBF0D201FE7CCF900F937B7 /* AppDelegate.swift */,
 				EBBF0D241FE7CCF900F937B7 /* Main.storyboard */,
@@ -104,6 +109,7 @@
 				EBBF0D291FE7CCF900F937B7 /* LaunchScreen.storyboard */,
 				EBBF0D2C1FE7CCF900F937B7 /* Info.plist */,
 				EBBF0D321FE7CD3A00F937B7 /* GoogleService-Info.plist */,
+				EB0904FE1FE83E4200B649F8 /* AnnotationPin.swift */,
 			);
 			path = Libike;
 			sourceTree = "<group>";
@@ -252,7 +258,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBBF0D231FE7CCF900F937B7 /* ViewController.swift in Sources */,
-				EB0904FA1FE8185F00B649F8 /* BikeCollectionViewCell.swift in Sources */,
+				EB0904FF1FE83E4200B649F8 /* AnnotationPin.swift in Sources */,
+				EB0905011FE84B7F00B649F8 /* BikeDetailsViewController.swift in Sources */,
+				EB0904FD1FE8265A00B649F8 /* Bike.swift in Sources */,
 				EB0904F31FE7FC6A00B649F8 /* BikesViewController.swift in Sources */,
 				EBBF0D211FE7CCF900F937B7 /* AppDelegate.swift in Sources */,
 			);
