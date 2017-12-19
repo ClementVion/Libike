@@ -8,5 +8,6 @@ target 'Libike' do
   # Pods for Libike
   pod 'Firebase/Core'
   pod 'Firebase/Database'
+  pod 'Firebase/Storage'
  
 end

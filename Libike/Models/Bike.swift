@@ -14,13 +14,16 @@ class Bike {
     let longitude: Double
     let price: Float
     let description: String
+    let imageURL: String
     
-    init(withTheName newName: String, andALatitudeOf newLatitude: Double, andALongitudeOf newLongitude: Double, andAPriceOf newPrice: Float, andADescription newDescription: String) {
+    init(withTheName newName: String, andALatitudeOf newLatitude: Double, andALongitudeOf newLongitude: Double, andAPriceOf newPrice: Float, andADescription newDescription: String, andAnImageURL newImageURL: String) {
+        
         self.name = newName
         self.latitude = newLatitude
         self.longitude = newLongitude
         self.price = newPrice
         self.description = newDescription
+        self.imageURL = newImageURL
     }
 }
 

@@ -41,8 +41,9 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                     let bikeLongitude = bikeObject!["longitude"]
                     let bikePrice = bikeObject!["price"]
                     let bikeDescription = bikeObject!["description"]
+                    let bikeImageURL = bikeObject!["imageURL"]
                     
-                    let bike = Bike(withTheName: bikeName as! String, andALatitudeOf: bikeLatitude as! Double, andALongitudeOf: bikeLongitude as! Double, andAPriceOf: bikePrice as! Float, andADescription: bikeDescription as! String)
+                    let bike = Bike(withTheName: bikeName as! String, andALatitudeOf: bikeLatitude as! Double, andALongitudeOf: bikeLongitude as! Double, andAPriceOf: bikePrice as! Float, andADescription: bikeDescription as! String, andAnImageURL: bikeImageURL as! String)
                     
                     self.bikesList.append(bike)
                 }

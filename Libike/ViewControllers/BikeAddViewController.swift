@@ -17,13 +17,22 @@ class BikeAddViewController: UIViewController {
     @IBOutlet weak var textFieldPrice: UITextField!
     @IBOutlet weak var textFieldDescription: UITextField!
     @IBOutlet weak var labelSuccessMessage: UILabel!
+    @IBOutlet weak var buttonAddImage: UIButton!
+    @IBOutlet weak var buttonAdd: UIButton!
     
     var refBikes: DatabaseReference!
     
+    var imageUploadManager: ImageUploadManager?
+    var imageURL: String!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         refBikes = Database.database().reference().child("bikes")
+    }
+    
+    @IBAction func tapedOnButtonAddImage(_ sender: Any) {
+        showImagePicker()
     }
     
     @IBAction func tapedOnButtonAdd(_ sender: Any) {
@@ -38,6 +47,7 @@ class BikeAddViewController: UIViewController {
                         "name": self.textFieldName.text! as String,
                         "price": (self.textFieldPrice.text! as NSString).floatValue,
                         "description": self.textFieldDescription.text! as String,
+                        "imageURL": self.imageURL as String,
                         "latitude": coordinate.latitude as CLLocationDegrees,
                         "longitude": coordinate.longitude as CLLocationDegrees] as [String : Any]
             
@@ -63,5 +73,41 @@ class BikeAddViewController: UIViewController {
             completion(location.coordinate)
         }
     }
+    
+    func showImagePicker() {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = false
+        imagePickerController.sourceType = .photoLibrary
+        present(imagePickerController, animated: true, completion: nil)
+    }
 
+}
+
+extension BikeAddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    public func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    public func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            picker.dismiss(animated: true, completion: nil)
+            self.buttonAdd.isEnabled = false
+            self.buttonAddImage.isEnabled = false
+            
+            imageUploadManager = ImageUploadManager()
+            imageUploadManager?.uploadImage(image, progressBlock: { (percentage) in
+                let intPercentage = Int(percentage)
+                self.buttonAddImage.setTitle("Téléchargement de l'image : \(intPercentage) %", for: .normal)
+            }, completionBlock: { (fileURL, errorMessage) in
+                self.buttonAdd.isEnabled = true
+                self.buttonAddImage.isEnabled = true
+                self.buttonAddImage.setTitle("Changer d'image", for: .normal)
+                self.imageURL = fileURL?.absoluteString
+                print("imageURL : \(self.imageURL)")
+            })
+        }
+    }
 }
