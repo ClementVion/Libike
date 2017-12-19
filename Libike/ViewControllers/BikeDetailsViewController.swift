@@ -11,6 +11,8 @@ import UIKit
 class BikeDetailsViewController: UIViewController {
 
     @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var labelPrice: UILabel!
+    @IBOutlet weak var textDescription: UITextView!
     
     var bike: Bike!
     
@@ -18,8 +20,9 @@ class BikeDetailsViewController: UIViewController {
         super.viewDidLoad()
 
         labelTitle.text = bike.name
+        labelPrice.text = bike.price.description
+        textDescription.text = bike.description
         
-        // Do any additional setup after loading the view.
     }
 
 }
