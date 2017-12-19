@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7Q7-AQ-sCb">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TL4-Mi-tRd">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -23,22 +23,107 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="33" y="763"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="e2R-BO-Gvv">
+        <!--Bike Add View Controller-->
+        <scene sceneID="elz-oI-j2E">
             <objects>
-                <navigationController id="7Q7-AQ-sCb" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="SgO-iU-vcr">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
+                <viewController id="UHu-Z7-o9u" customClass="BikeAddViewController" customModule="Libike" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="roa-bQ-IOd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Annonce" borderStyle="roundedRect" placeholder="Nom de votre annonce" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="csh-IV-rqF">
+                                <rect key="frame" x="30" y="111" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="16" borderStyle="roundedRect" placeholder="Prix / jour" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kM4-PS-eQY">
+                                <rect key="frame" x="30" y="217" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lorem" borderStyle="roundedRect" placeholder="Description de votre vélo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FHT-K7-TLO">
+                                <rect key="frame" x="30" y="270" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gse-XX-1jh">
+                                <rect key="frame" x="30.5" y="427" width="315" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="27 bis rue du progrès 93100 montreuil" borderStyle="roundedRect" placeholder="L'adresse où venir le chercher" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Kp-CK-hun">
+                                <rect key="frame" x="30" y="164" width="315" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0W4-oF-6jm">
+                                <rect key="frame" x="30.5" y="355" width="315" height="30"/>
+                                <state key="normal" title="Ajouter"/>
+                                <connections>
+                                    <action selector="tapedOnButtonAdd:" destination="UHu-Z7-o9u" eventType="touchUpInside" id="RQ7-dl-AXn"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PZp-44-XVw" firstAttribute="trailing" secondItem="csh-IV-rqF" secondAttribute="trailing" constant="30" id="0gh-pT-eTF"/>
+                            <constraint firstItem="csh-IV-rqF" firstAttribute="leading" secondItem="PZp-44-XVw" secondAttribute="leading" constant="30" id="2zF-ve-ncJ"/>
+                            <constraint firstItem="kM4-PS-eQY" firstAttribute="leading" secondItem="3Kp-CK-hun" secondAttribute="leading" id="4OF-Ic-tdM"/>
+                            <constraint firstItem="Gse-XX-1jh" firstAttribute="top" secondItem="0W4-oF-6jm" secondAttribute="bottom" constant="42" id="61B-gd-wKR"/>
+                            <constraint firstItem="kM4-PS-eQY" firstAttribute="top" secondItem="3Kp-CK-hun" secondAttribute="bottom" constant="23" id="6NZ-Xk-swR"/>
+                            <constraint firstItem="3Kp-CK-hun" firstAttribute="width" secondItem="csh-IV-rqF" secondAttribute="width" id="9Pz-eY-s0l"/>
+                            <constraint firstItem="FHT-K7-TLO" firstAttribute="leading" secondItem="kM4-PS-eQY" secondAttribute="leading" id="Jp5-8N-mqc"/>
+                            <constraint firstItem="0W4-oF-6jm" firstAttribute="width" secondItem="FHT-K7-TLO" secondAttribute="width" id="Ksp-EV-Eit"/>
+                            <constraint firstItem="Gse-XX-1jh" firstAttribute="width" secondItem="0W4-oF-6jm" secondAttribute="width" id="Mwr-Ie-UtW"/>
+                            <constraint firstItem="0W4-oF-6jm" firstAttribute="top" secondItem="FHT-K7-TLO" secondAttribute="bottom" constant="55" id="MzW-jw-fyP"/>
+                            <constraint firstItem="kM4-PS-eQY" firstAttribute="width" secondItem="3Kp-CK-hun" secondAttribute="width" id="Ocj-GL-dQl"/>
+                            <constraint firstItem="Gse-XX-1jh" firstAttribute="leading" secondItem="0W4-oF-6jm" secondAttribute="leading" id="cC6-d1-n3i"/>
+                            <constraint firstItem="3Kp-CK-hun" firstAttribute="leading" secondItem="csh-IV-rqF" secondAttribute="leading" id="g7q-F6-xxp"/>
+                            <constraint firstItem="csh-IV-rqF" firstAttribute="top" secondItem="PZp-44-XVw" secondAttribute="top" constant="91" id="jqU-xX-tu8"/>
+                            <constraint firstItem="0W4-oF-6jm" firstAttribute="centerX" secondItem="PZp-44-XVw" secondAttribute="centerX" id="m1I-Dz-fgx"/>
+                            <constraint firstItem="FHT-K7-TLO" firstAttribute="width" secondItem="kM4-PS-eQY" secondAttribute="width" id="pMR-aV-PmS"/>
+                            <constraint firstItem="FHT-K7-TLO" firstAttribute="top" secondItem="kM4-PS-eQY" secondAttribute="bottom" constant="23" id="rAT-go-fSy"/>
+                            <constraint firstItem="3Kp-CK-hun" firstAttribute="top" secondItem="csh-IV-rqF" secondAttribute="bottom" constant="23" id="rXG-qo-hlk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="PZp-44-XVw"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" systemItem="more" id="sZk-GS-9lp"/>
                     <connections>
-                        <segue destination="pC2-Kb-1qo" kind="relationship" relationship="rootViewController" id="CnA-07-zEX"/>
+                        <outlet property="labelSuccessMessage" destination="Gse-XX-1jh" id="ydU-Kc-RBV"/>
+                        <outlet property="textFieldAddress" destination="3Kp-CK-hun" id="OFS-0r-Fwh"/>
+                        <outlet property="textFieldDescription" destination="FHT-K7-TLO" id="wR8-ag-csu"/>
+                        <outlet property="textFieldName" destination="csh-IV-rqF" id="MQ0-RM-m2w"/>
+                        <outlet property="textFieldPrice" destination="kM4-PS-eQY" id="ZIc-ph-ZjE"/>
                     </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ws3-eN-hMh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aYr-Bo-FEZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="33" y="-1459"/>
+            <point key="canvasLocation" x="32.799999999999997" y="-1479.3103448275863"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="lMy-sQ-Kyz">
+            <objects>
+                <tabBarController id="TL4-Mi-tRd" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="S5E-BV-aLB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ZST-oS-ah7" kind="relationship" relationship="viewControllers" id="e1l-hA-Odk"/>
+                        <segue destination="UHu-Z7-o9u" kind="relationship" relationship="viewControllers" id="igF-LI-k7v"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t3A-PB-p7w" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-921" y="-696"/>
         </scene>
         <!--Bikes View Controller-->
         <scene sceneID="OGX-h5-ghK">
@@ -48,16 +133,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Vr0-Te-eN0">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Vr0-Te-eN0">
                                 <rect key="frame" x="0.0" y="32" width="375" height="667"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Vr0-Te-eN0" firstAttribute="centerX" secondItem="w00-MD-a6Z" secondAttribute="centerX" id="5vj-BT-jqL"/>
-                            <constraint firstItem="Vr0-Te-eN0" firstAttribute="width" secondItem="rGd-k8-afr" secondAttribute="width" id="BB1-Wk-TH1"/>
-                            <constraint firstItem="Vr0-Te-eN0" firstAttribute="centerY" secondItem="w00-MD-a6Z" secondAttribute="centerY" id="K5w-fh-2hZ"/>
-                            <constraint firstItem="Vr0-Te-eN0" firstAttribute="height" secondItem="rGd-k8-afr" secondAttribute="height" id="glo-Rf-eKZ"/>
+                            <constraint firstItem="Vr0-Te-eN0" firstAttribute="width" secondItem="rGd-k8-afr" secondAttribute="width" id="eTo-Sb-ghE"/>
+                            <constraint firstItem="Vr0-Te-eN0" firstAttribute="height" secondItem="rGd-k8-afr" secondAttribute="height" id="iPt-BH-0eu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="w00-MD-a6Z"/>
                     </view>
@@ -69,7 +153,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcM-xj-UL2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="-695.80209895052474"/>
+            <point key="canvasLocation" x="842" y="-697"/>
         </scene>
         <!--Bike Details View Controller-->
         <scene sceneID="aKq-HD-jD9">
@@ -132,7 +216,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vcZ-Tb-ZhS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="949.60000000000002" y="-696.7016491754124"/>
+            <point key="canvasLocation" x="1634" y="-697"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="8JD-a2-ccr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZST-oS-ah7" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="search" id="r3r-fQ-bq6"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aC5-7W-1Gc">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="pC2-Kb-1qo" kind="relationship" relationship="rootViewController" id="9bv-CS-9ob"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hke-Rm-VS0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32" y="-696.25187406296857"/>
         </scene>
     </scenes>
 </document>
