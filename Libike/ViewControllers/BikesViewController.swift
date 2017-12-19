@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FirebaseDatabase
 
 class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -18,32 +19,57 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     var annotation:AnnotationPin!
     var bikesList = [Bike]()
     
+    var refBikes: DatabaseReference!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         map.delegate = self
         
-        var bike = Bike(withTheName: "Vélo de qualité", andALatitudeOf: 48.785478, andALongitudeOf: 2.445296)
-        self.bikesList.append(bike)
+        // Get bikes from Firebase
+        refBikes = Database.database().reference().child("bikes")
         
-        bike = Bike(withTheName: "Vélo de qualité 2", andALatitudeOf: 48.7860525, andALongitudeOf: 2.4438384)
-        self.bikesList.append(bike)
+        refBikes.observe(DataEventType.value, with:{(snapshot) in
+            if snapshot.childrenCount > 0 {
+                self.bikesList.removeAll()
+                
+                for bikes in snapshot.children.allObjects as![DataSnapshot]{
+                    
+                    let bikeObject = bikes.value as? [String: AnyObject]
+                    let bikeName = bikeObject!["name"]
+                    let bikeLatitude = bikeObject!["latitude"]
+                    let bikeLongitude = bikeObject!["longitude"]
+                    let bikePrice = bikeObject!["price"]
+                    let bikeDescription = bikeObject!["description"]
+                    
+                    let bike = Bike(withTheName: bikeName as! String, andALatitudeOf: bikeLatitude as! Double, andALongitudeOf: bikeLongitude as! Double, andAPriceOf: bikePrice as! Float, andADescription: bikeDescription as! String)
+                    
+                    self.bikesList.append(bike)
+                }
+                
+                self.initBikesAnnotations()
+            }
+        })
         
-        // Add anotation on the map
-        for bikeItem in bikesList {
-            
-            let annotationLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(bikeItem.latitude, bikeItem.longitude)
-            annotation = AnnotationPin(withTheTitle: bike.name, andTheSubtitle: "test", andCoordinatesOf: annotationLocation, andABike: bikeItem)
-            map.addAnnotation(annotation)
-        }
-        
+        // Setup to get user location
         manager.delegate = self
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
     }
     
+    // Add bikes as annotations on the map
+    func initBikesAnnotations() {
+        for bikeItem in bikesList {
+            
+            let annotationLocation:CLLocationCoordinate2D = CLLocationCoordinate2DMake(bikeItem.latitude, bikeItem.longitude)
+            annotation = AnnotationPin(withTheTitle: bikeItem.name, andTheSubtitle: "test", andCoordinatesOf: annotationLocation, andABike: bikeItem)
+            map.addAnnotation(annotation)
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         if segue.identifier == "bikeDetails" {
             
             let destination = segue.destination
@@ -51,10 +77,11 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
                 
                 bikeDetailsController.bike = (sender as! AnnotationPin).bike
             }
-            
+        
         }
     }
     
+    // Get user location on real time
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let location = locations[0]
@@ -64,10 +91,12 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         map.setRegion(region, animated: true)
         
         self.map.showsUserLocation = true
+        
     }
     
     // Customize pin
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
         if annotation is MKUserLocation { return nil }
         
         let reuseId = "customAnnotation"
@@ -82,7 +111,9 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         return annotationView
     }
     
+    // Tap on custom pin
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
         let annotation = view.annotation as! AnnotationPin
         performSegue(withIdentifier: "bikeDetails", sender: annotation)
     }
