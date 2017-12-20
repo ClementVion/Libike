@@ -14,8 +14,10 @@ class BikeDetailsViewController: UIViewController {
     @IBOutlet weak var labelPrice: UILabel!
     @IBOutlet weak var textDescription: UITextView!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var datePicker: UIDatePicker!
     
     var bike: Bike!
+    var reservation: Reservation!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +28,23 @@ class BikeDetailsViewController: UIViewController {
         labelPrice.text = "\(bike.price.description)€"
         textDescription.text = bike.description
         
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showReservation" {
+            
+            let destination = segue.destination
+            if let reservationController = destination as? ReservationViewController {
+                
+                var date = datePicker.date
+                reservation = Reservation(withTheBikeName: bike.name, andAtTheDate: date)
+                
+                reservationController.reservation = reservation
+                
+            }
+            
+        }
     }
     
     // Sample code from : https://www.youtube.com/watch?v=Z6D68MMx2pw

@@ -13,13 +13,15 @@
 		EB0904FF1FE83E4200B649F8 /* AnnotationPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0904FE1FE83E4200B649F8 /* AnnotationPin.swift */; };
 		EB0905011FE84B7F00B649F8 /* BikeDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB0905001FE84B7F00B649F8 /* BikeDetailsViewController.swift */; };
 		EB184D991FEA80C1003D6E52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB184D981FEA80C1003D6E52 /* Assets.xcassets */; };
+		EB1D87111FEA9BA700D11C49 /* Reservation.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D87101FEA9BA700D11C49 /* Reservation.swift */; };
+		EB1D87161FEA9DE300D11C49 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB1D87151FEA9DE300D11C49 /* GoogleService-Info.plist */; };
+		EB1D87181FEA9F6900D11C49 /* ReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB1D87171FEA9F6900D11C49 /* ReservationViewController.swift */; };
 		EB34086C1FEA790000B9FE13 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34086B1FEA790000B9FE13 /* LoginViewController.swift */; };
 		EB8650C01FE9693D0083C5C8 /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8650BF1FE9693D0083C5C8 /* ImageUploadManager.swift */; };
 		EB94968C1FE93AC900791473 /* BikeAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94968B1FE93AC900791473 /* BikeAddViewController.swift */; };
 		EBBF0D211FE7CCF900F937B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF0D201FE7CCF900F937B7 /* AppDelegate.swift */; };
 		EBBF0D261FE7CCF900F937B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBF0D241FE7CCF900F937B7 /* Main.storyboard */; };
 		EBBF0D2B1FE7CCF900F937B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBF0D291FE7CCF900F937B7 /* LaunchScreen.storyboard */; };
-		EBBF0D331FE7CD3A00F937B7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EBBF0D321FE7CD3A00F937B7 /* GoogleService-Info.plist */; };
 		F281BA0FE5C7B5DED1241D5D /* Pods_Libike.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EA836737FFD71FBF53AB7A46 /* Pods_Libike.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,9 @@
 		EB0904FE1FE83E4200B649F8 /* AnnotationPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnotationPin.swift; sourceTree = "<group>"; };
 		EB0905001FE84B7F00B649F8 /* BikeDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeDetailsViewController.swift; sourceTree = "<group>"; };
 		EB184D981FEA80C1003D6E52 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EB1D87101FEA9BA700D11C49 /* Reservation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reservation.swift; sourceTree = "<group>"; };
+		EB1D87151FEA9DE300D11C49 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../Desktop/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB1D87171FEA9F6900D11C49 /* ReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationViewController.swift; sourceTree = "<group>"; };
 		EB34086B1FEA790000B9FE13 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EB8650BF1FE9693D0083C5C8 /* ImageUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
 		EB94968B1FE93AC900791473 /* BikeAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeAddViewController.swift; sourceTree = "<group>"; };
@@ -41,7 +46,6 @@
 		EBBF0D251FE7CCF900F937B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EBBF0D2A1FE7CCF900F937B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EBBF0D2C1FE7CCF900F937B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EBBF0D321FE7CD3A00F937B7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 				EB0905001FE84B7F00B649F8 /* BikeDetailsViewController.swift */,
 				EB94968B1FE93AC900791473 /* BikeAddViewController.swift */,
 				EB34086B1FEA790000B9FE13 /* LoginViewController.swift */,
+				EB1D87171FEA9F6900D11C49 /* ReservationViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -81,6 +86,7 @@
 			isa = PBXGroup;
 			children = (
 				EB0904FC1FE8265A00B649F8 /* Bike.swift */,
+				EB1D87101FEA9BA700D11C49 /* Reservation.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -88,6 +94,7 @@
 		EBBF0D141FE7CCF900F937B7 = {
 			isa = PBXGroup;
 			children = (
+				EB1D87151FEA9DE300D11C49 /* GoogleService-Info.plist */,
 				EBBF0D1F1FE7CCF900F937B7 /* Libike */,
 				EBBF0D1E1FE7CCF900F937B7 /* Products */,
 				F0A5A3BAA9A1299DD8E8BA14 /* Pods */,
@@ -112,7 +119,6 @@
 				EBBF0D241FE7CCF900F937B7 /* Main.storyboard */,
 				EBBF0D291FE7CCF900F937B7 /* LaunchScreen.storyboard */,
 				EBBF0D2C1FE7CCF900F937B7 /* Info.plist */,
-				EBBF0D321FE7CD3A00F937B7 /* GoogleService-Info.plist */,
 				EB0904FE1FE83E4200B649F8 /* AnnotationPin.swift */,
 				EB8650BF1FE9693D0083C5C8 /* ImageUploadManager.swift */,
 				EB184D981FEA80C1003D6E52 /* Assets.xcassets */,
@@ -192,7 +198,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBBF0D2B1FE7CCF900F937B7 /* LaunchScreen.storyboard in Resources */,
-				EBBF0D331FE7CD3A00F937B7 /* GoogleService-Info.plist in Resources */,
+				EB1D87161FEA9DE300D11C49 /* GoogleService-Info.plist in Resources */,
 				EB184D991FEA80C1003D6E52 /* Assets.xcassets in Resources */,
 				EBBF0D261FE7CCF900F937B7 /* Main.storyboard in Resources */,
 			);
@@ -267,8 +273,10 @@
 			files = (
 				EB0904FF1FE83E4200B649F8 /* AnnotationPin.swift in Sources */,
 				EB0905011FE84B7F00B649F8 /* BikeDetailsViewController.swift in Sources */,
+				EB1D87111FEA9BA700D11C49 /* Reservation.swift in Sources */,
 				EB8650C01FE9693D0083C5C8 /* ImageUploadManager.swift in Sources */,
 				EB0904FD1FE8265A00B649F8 /* Bike.swift in Sources */,
+				EB1D87181FEA9F6900D11C49 /* ReservationViewController.swift in Sources */,
 				EB34086C1FEA790000B9FE13 /* LoginViewController.swift in Sources */,
 				EB94968C1FE93AC900791473 /* BikeAddViewController.swift in Sources */,
 				EB0904F31FE7FC6A00B649F8 /* BikesViewController.swift in Sources */,
