@@ -15,9 +15,7 @@
         <scene sceneID="9lg-f7-iSQ">
             <objects>
                 <navigationController id="d9z-pP-AdY" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Ajouter" image="add" landscapeImage="add" largeContentSizeImage="add" id="eDe-j4-1hx">
-                        <color key="badgeColor" red="0.43529411759999997" green="0.90196078430000004" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Ajouter" image="add" landscapeImage="add" largeContentSizeImage="add" id="eDe-j4-1hx"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mLn-60-bup">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -350,7 +348,6 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZST-oS-ah7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Vélos" image="bike-logo" landscapeImage="bike-logo" largeContentSizeImage="bike-logo" id="r3r-fQ-bq6">
                         <inset key="largeContentSizeImageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="0.0"/>
-                        <color key="badgeColor" red="0.43529411759999997" green="0.90196078430000004" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
                     </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aC5-7W-1Gc">
@@ -370,9 +367,7 @@
         <scene sceneID="shf-Cp-SYu">
             <objects>
                 <navigationController id="obu-eH-ADZ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Compte" image="user" landscapeImage="user" largeContentSizeImage="user" id="ij8-mm-jxf">
-                        <color key="badgeColor" red="0.43529411759999997" green="0.90196078430000004" blue="0.63137254899999995" alpha="1" colorSpace="calibratedRGB"/>
-                    </tabBarItem>
+                    <tabBarItem key="tabBarItem" title="Compte" image="user" landscapeImage="user" largeContentSizeImage="user" id="ij8-mm-jxf"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jRK-pU-sCb">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -458,10 +453,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="add" width="29" height="28"/>
+        <image name="add" width="25" height="25"/>
         <image name="bike" width="202" height="121"/>
-        <image name="bike-logo" width="30" height="20"/>
-        <image name="user" width="29" height="29"/>
+        <image name="bike-logo" width="35" height="23"/>
+        <image name="user" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="lCt-3f-Nz1"/>
