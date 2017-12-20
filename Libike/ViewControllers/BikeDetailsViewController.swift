@@ -20,6 +20,8 @@ class BikeDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(bike)
+        
         getImage(bike.imageURL, imageView)
         
         labelTitle.text = bike.name

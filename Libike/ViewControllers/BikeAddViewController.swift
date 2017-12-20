@@ -16,7 +16,6 @@ class BikeAddViewController: UIViewController {
     @IBOutlet weak var textFieldAddress: UITextField!
     @IBOutlet weak var textFieldPrice: UITextField!
     @IBOutlet weak var textFieldDescription: UITextField!
-    @IBOutlet weak var labelSuccessMessage: UILabel!
     @IBOutlet weak var buttonAddImage: UIButton!
     @IBOutlet weak var buttonAdd: UIButton!
     
@@ -24,6 +23,8 @@ class BikeAddViewController: UIViewController {
     
     var imageUploadManager: ImageUploadManager?
     var imageURL: String!
+    
+    var bikeModel: Bike!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,17 +44,34 @@ class BikeAddViewController: UIViewController {
         let key = refBikes.childByAutoId().key
        
         geoCodeAddress { (coordinate) in
-            let bike = ["id": key,
-                        "name": self.textFieldName.text! as String,
-                        "price": (self.textFieldPrice.text! as NSString).floatValue,
-                        "description": self.textFieldDescription.text! as String,
-                        "imageURL": self.imageURL as String,
-                        "latitude": coordinate.latitude as CLLocationDegrees,
-                        "longitude": coordinate.longitude as CLLocationDegrees] as [String : Any]
+            self.bikeModel = Bike(
+                withTheName: self.textFieldName.text! as String,
+                andALatitudeOf: coordinate.latitude as CLLocationDegrees,
+                andALongitudeOf: coordinate.longitude as CLLocationDegrees,
+                andAPriceOf: (self.textFieldPrice.text! as NSString).floatValue,
+                andADescription: self.textFieldDescription.text! as String,
+                andAnImageURL: self.imageURL as String)
             
-            self.refBikes.child(key).setValue(bike)
             
-            self.labelSuccessMessage.text = "Votre vélo a été ajouté !"
+            let bikeToSend = [
+                "id": key,
+                "name": self.bikeModel.name,
+                "latitude": self.bikeModel.latitude,
+                "longitude": self.bikeModel.longitude,
+                "price": self.bikeModel.price,
+                "description": self.bikeModel.description,
+                "imageURL": self.bikeModel.imageURL as String] as [String : Any]
+            
+            
+            self.refBikes.child(key).setValue(bikeToSend)
+            
+            self.textFieldName.text = ""
+            self.textFieldAddress.text = ""
+            self.textFieldPrice.text = ""
+            self.textFieldDescription.text = ""
+            self.buttonAddImage.setTitle("Ajouter une image", for: .normal)
+            
+            self.performSegue(withIdentifier: "showBikeDetailsFromAdd", sender: self)
         }
         
     }
@@ -67,7 +85,6 @@ class BikeAddViewController: UIViewController {
                 let placemarks = placemarks,
                 let location = placemarks.first?.location
             else {
-                self.labelSuccessMessage.text = "L'adresse entrée n'a pas été trouvée."
                 return
             }
             completion(location.coordinate)
@@ -80,6 +97,19 @@ class BikeAddViewController: UIViewController {
         imagePickerController.allowsEditing = false
         imagePickerController.sourceType = .photoLibrary
         present(imagePickerController, animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "showBikeDetailsFromAdd" {
+            
+            let destination = segue.destination
+            if let bikeDetailsController = destination as? BikeDetailsViewController {
+                
+                bikeDetailsController.bike = bikeModel
+            }
+            
+        }
     }
 
 }
