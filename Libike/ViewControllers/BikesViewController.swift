@@ -101,13 +101,15 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         if annotation is MKUserLocation { return nil }
         
         let reuseId = "customAnnotation"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId) as? MKPinAnnotationView
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: reuseId)
         if annotationView == nil {
-            annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             annotationView?.canShowCallout = false
         } else {
             annotationView?.annotation = annotation
         }
+        
+        annotationView?.image = UIImage(named: "bike-map")
         
         return annotationView
     }
