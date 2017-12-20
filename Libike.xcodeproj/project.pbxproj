@@ -19,6 +19,7 @@
 		EB34086C1FEA790000B9FE13 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB34086B1FEA790000B9FE13 /* LoginViewController.swift */; };
 		EB8650C01FE9693D0083C5C8 /* ImageUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8650BF1FE9693D0083C5C8 /* ImageUploadManager.swift */; };
 		EB94968C1FE93AC900791473 /* BikeAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB94968B1FE93AC900791473 /* BikeAddViewController.swift */; };
+		EBAF18681FEAC63E00D57D62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBAF18671FEAC63E00D57D62 /* ViewController.swift */; };
 		EBBF0D211FE7CCF900F937B7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBBF0D201FE7CCF900F937B7 /* AppDelegate.swift */; };
 		EBBF0D261FE7CCF900F937B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBF0D241FE7CCF900F937B7 /* Main.storyboard */; };
 		EBBF0D2B1FE7CCF900F937B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EBBF0D291FE7CCF900F937B7 /* LaunchScreen.storyboard */; };
@@ -41,6 +42,7 @@
 		EB34086B1FEA790000B9FE13 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		EB8650BF1FE9693D0083C5C8 /* ImageUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadManager.swift; sourceTree = "<group>"; };
 		EB94968B1FE93AC900791473 /* BikeAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BikeAddViewController.swift; sourceTree = "<group>"; };
+		EBAF18671FEAC63E00D57D62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EBBF0D1D1FE7CCF900F937B7 /* Libike.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Libike.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EBBF0D201FE7CCF900F937B7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EBBF0D251FE7CCF900F937B7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 				EB94968B1FE93AC900791473 /* BikeAddViewController.swift */,
 				EB34086B1FEA790000B9FE13 /* LoginViewController.swift */,
 				EB1D87171FEA9F6900D11C49 /* ReservationViewController.swift */,
+				EBAF18671FEAC63E00D57D62 /* ViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				EB0905011FE84B7F00B649F8 /* BikeDetailsViewController.swift in Sources */,
 				EB1D87111FEA9BA700D11C49 /* Reservation.swift in Sources */,
 				EB8650C01FE9693D0083C5C8 /* ImageUploadManager.swift in Sources */,
+				EBAF18681FEAC63E00D57D62 /* ViewController.swift in Sources */,
 				EB0904FD1FE8265A00B649F8 /* Bike.swift in Sources */,
 				EB1D87181FEA9F6900D11C49 /* ReservationViewController.swift in Sources */,
 				EB34086C1FEA790000B9FE13 /* LoginViewController.swift in Sources */,

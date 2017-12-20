@@ -30,6 +30,8 @@ class BikeAddViewController: UIViewController {
         super.viewDidLoad()
         
         refBikes = Database.database().reference().child("bikes")
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     @IBAction func tapedOnButtonAddImage(_ sender: Any) {

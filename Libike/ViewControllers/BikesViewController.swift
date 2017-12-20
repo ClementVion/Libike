@@ -82,6 +82,7 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
     }
     
+    
     // Get user location on real time
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -93,6 +94,7 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         
         self.map.showsUserLocation = true
         
+        manager.stopUpdatingLocation() // Only update one time so that the user can browse the map
     }
     
     // Customize pin
