@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class BikeDetailsViewController: UIViewController {
 
@@ -37,10 +38,20 @@ class BikeDetailsViewController: UIViewController {
             let destination = segue.destination
             if let reservationController = destination as? ReservationViewController {
                 
-                var date = datePicker.date
+                let date = datePicker.date
+                let currentDate = Date()
+                
+                let formatter = DateFormatter()
+                formatter.dateFormat = "dd/MM/yyyy"
+                
                 reservation = Reservation(withTheBikeName: bike.name, andAtTheDate: date)
                 
                 reservationController.reservation = reservation
+                
+                Analytics.logEvent("booking", parameters: [
+                    "booking_date": "\(formatter.string(for: currentDate))" as NSString,
+                    "booking_actual_date": "\(formatter.string(for: date))" as NSString,
+                ])
                 
             }
             

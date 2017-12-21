@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import CoreLocation
+import Firebase
 import FirebaseDatabase
 
 class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
@@ -118,6 +119,8 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     // Tap on custom pin
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        Analytics.logEvent("markers_click_rate", parameters: [:])
         
         let annotation = view.annotation as! AnnotationPin
         performSegue(withIdentifier: "bikeDetails", sender: annotation)
