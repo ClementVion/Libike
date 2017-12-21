@@ -74,7 +74,6 @@ class BikeAddViewController: UIViewController {
             self.textFieldDescription.text = ""
             self.buttonAddImage.setTitle("Ajouter une image", for: .normal)
             
-            print("/////////////////////////////////ADDBIKE////////////////////////////////")
             Analytics.logEvent("addbike", parameters: [
                 "addbike_name": self.bikeModel.name as NSObject,
                 "addbike_desc": self.bikeModel.description as NSObject,

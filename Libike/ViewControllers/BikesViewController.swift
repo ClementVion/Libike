@@ -58,9 +58,18 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         manager.desiredAccuracy = kCLLocationAccuracyBest
         manager.requestWhenInUseAuthorization()
         manager.startUpdatingLocation()
+        
+        // Analytics
+        let currentDate = Date()
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = "dd/MM/yyyy"
+        Analytics.setUserProperty(formatter.string(for: currentDate), forName: "open_day_time")
+        
+        formatter.dateFormat = "h:m"
+        Analytics.setUserProperty(formatter.string(for: currentDate), forName: "open_hour_time")
     }
     
-    // Add bikes as annotations on the map
     func initBikesAnnotations() {
         for bikeItem in bikesList {
             
@@ -119,11 +128,17 @@ class BikesViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     // Tap on custom pin
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
-        Analytics.logEvent("markers_click_rate", parameters: [:])
+        if view.annotation is MKUserLocation { return }
         
         let annotation = view.annotation as! AnnotationPin
+        
+        Analytics.logEvent("markers_click_rate", parameters: [:])
         performSegue(withIdentifier: "bikeDetails", sender: annotation)
+        
+        // Deselect annotation
+        for item in self.map.selectedAnnotations {
+            self.map.deselectAnnotation(item, animated: false)
+        }
     }
 
 }
