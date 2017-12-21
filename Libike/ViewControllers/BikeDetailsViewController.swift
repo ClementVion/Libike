@@ -30,7 +30,6 @@ class BikeDetailsViewController: UIViewController {
         labelPrice.text = "\(bike.price.description)€"
         textDescription.text = bike.description
         
-        print("/////////////////////////////////BIKE////////////////////////////////")
         Analytics.logEvent("bike", parameters: [
             "bike_price": self.bike.price as NSObject,
             "bike_name": self.bike.name as NSObject,
@@ -48,8 +47,6 @@ class BikeDetailsViewController: UIViewController {
                 
                 let date = datePicker.date
                 let currentDate = Date()
-                
-                print("DATE : \(currentDate)")
                 
                 let formatter = DateFormatter()
                 formatter.dateFormat = "dd/MM/yyyy"

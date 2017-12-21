@@ -145,7 +145,6 @@ extension BikeAddViewController: UIImagePickerControllerDelegate, UINavigationCo
                 self.buttonAddImage.isEnabled = true
                 self.buttonAddImage.setTitle("Changer d'image", for: .normal)
                 self.imageURL = fileURL?.absoluteString
-                print("imageURL : \(self.imageURL)")
             })
         }
     }
